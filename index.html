@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>सच का बाज़ार | Alok Ranjan</title>
+
+  <!-- Hindi Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Noto Serif Devanagari', serif;
+      background: linear-gradient(135deg,#020617,#0f172a,#111827);
+      color:white;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    /* Header */
+    header{
+      text-align:center;
+      padding:60px 20px 30px;
+    }
+
+    header h1{
+      font-size:3.5rem;
+      color:#facc15;
+      text-shadow:0 0 20px rgba(250,204,21,0.5);
+      margin-bottom:15px;
+    }
+
+    header p{
+      max-width:800px;
+      margin:auto;
+      color:#cbd5e1;
+      line-height:1.8;
+      font-size:1.1rem;
+    }
+
+    /* Main Layout */
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:40px auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+    }
+
+    /* Card Design */
+    .card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:25px;
+      padding:25px;
+      backdrop-filter:blur(10px);
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+      transition:0.4s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 15px 40px rgba(0,0,0,0.6);
+    }
+
+    .card h2{
+      color:#facc15;
+      margin-bottom:20px;
+      font-size:1.8rem;
+    }
+
+    /* Textarea */
+    textarea{
+      width:100%;
+      height:500px;
+      background:#0f172a;
+      color:white;
+      border:none;
+      outline:none;
+      border-radius:20px;
+      padding:20px;
+      font-size:1rem;
+      line-height:2;
+      resize:none;
+    }
+
+    /* Live Preview */
+    .poem{
+      white-space:pre-line;
+      line-height:2.2;
+      font-size:1.05rem;
+      color:#f8fafc;
+      padding:10px;
+    }
+
+    /* Buttons */
+    .buttons{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+      margin-top:20px;
+    }
+
+    button{
+      padding:12px 24px;
+      border:none;
+      border-radius:30px;
+      background:#facc15;
+      color:#111827;
+      font-size:1rem;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:white;
+      transform:scale(1.05);
+    }
+
+    /* Footer */
+    footer{
+      text-align:center;
+      padding:40px 20px;
+      color:#94a3b8;
+      line-height:2;
+      font-size:1rem;
+    }
+
+    footer strong{
+      color:#facc15;
+    }
+
+    /* Responsive */
+    @media(max-width:900px){
+
+      .container{
+        grid-template-columns:1fr;
+      }
+
+      header h1{
+        font-size:2.5rem;
+      }
+
+      textarea{
+        height:400px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>✍️ सच का बाज़ार</h1>
+
+    <p>
+      यह एक आधुनिक हिंदी Poetry Website है जहाँ आप अपनी कविताएँ लिख सकते हैं,
+      उन्हें सेव कर सकते हैं और सुंदर तरीके से पढ़ सकते हैं।
+    </p>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- Left Side Editor -->
+    <div class="card">
+
+      <h2>📝 कविता लिखें</h2>
+
+      <textarea id="editor">
+"सच का बाज़ार"
+
+सुबह-सुबह जो हाथ में आया, वो अखबार नहीं है,
+जो स्क्रीन पर चमक रहा है, वो सच का यार नहीं है।
+यहाँ झूठ को सच का चश्मा पहनाया जाता है,
+सस्ते व्यूज की खातिर, कुछ भी परोसा जाता है।
+ये कैसा दौर है आया, जहाँ अफ़वाहों का बाज़ार है,
+पहचानो मेरे भाई, ये झूठी खबरों का वार है।
+
+एक क्लिक पे यहाँ किसी की इज़्ज़त उछल जाती है,
+बिना सोचे-समझे उँगलियाँ फॉरवर्ड दबाती हैं।
+आधे सच में पूरा ज़हर मिला कर बेचते हैं,
+तोड़-मरोड़ के बातें, ये कैसा खेल रचते हैं?
+सच्चाई कहीं कोने में बैठ के रोती है,
+जब सनसनीखेज हेडलाइन सबसे आगे होती है।
+
+दंगों की आग सुलगे, या नफ़रत का हो साया,
+फ़र्ज़ी वीडियो ने यहाँ कितनों को है लड़वाया।
+जो टीवी पर चिल्लाए, वो सच का ठेकेदार नहीं,
+जो वायरल हो रहा है, वो हमेशा वफ़ादार नहीं।
+सवालों को दबा कर, बस शोर मचाया जाता है,
+सोच को बंधक रख कर, एजेंडा चलाया जाता है।
+
+अब जागना होगा तुमको, खुद ही सोचना होगा,
+हर फॉरवर्डेड मैसेज को पहले तोलना होगा।
+फैक्ट-चेक की आदत डालो, सच को पहचानो तुम,
+इस भ्रामक दुनिया में, खुद को न हारो तुम।
+
+क्योंकि...
+सुबह-सुबह जो हाथ में आया, वो अखबार नहीं है।
+      </textarea>
+
+      <div class="buttons">
+        <button onclick="publishPoem()">Publish</button>
+        <button onclick="downloadPoem()">Download</button>
+        <button onclick="clearPoem()">Clear</button>
+      </div>
+
+    </div>
+
+    <!-- Right Side Preview -->
+    <div class="card">
+
+      <h2>📖 Live Preview</h2>
+
+      <div class="poem" id="preview"></div>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    ✍️ Author: <strong>Alok Ranjan</strong> <br>
+    Poetry Studio Website 2026 <br>
+    Made with ❤️ for Hindi Writers
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+
+    const editor = document.getElementById("editor");
+    const preview = document.getElementById("preview");
+
+    // Publish Poem
+    function publishPoem(){
+
+      preview.innerText = editor.value;
+
+      // Save locally
+      localStorage.setItem("alok_poem", editor.value);
+
+      alert("✅ Poem Published Successfully");
+    }
+
+    // Auto Load Saved Poem
+    window.onload = () => {
+
+      const savedPoem = localStorage.getItem("alok_poem");
+
+      if(savedPoem){
+        editor.value = savedPoem;
+      }
+
+      preview.innerText = editor.value;
+    }
+
+    // Download Poem
+    function downloadPoem(){
+
+      const poemText = editor.value;
+
+      const blob = new Blob([poemText], {type:"text/plain"});
+
+      const link = document.createElement("a");
+
+      link.href = URL.createObjectURL(blob);
+
+      link.download = "Sach_Ka_Bazaar.txt";
+
+      link.click();
+    }
+
+    // Clear Poem
+    function clearPoem(){
+
+      if(confirm("Are you sure you want to clear the poem?")){
+
+        editor.value = "";
+
+        preview.innerText = "";
+
+        localStorage.removeItem("alok_poem");
+      }
+    }
+
+    // Live Typing Preview
+    editor.addEventListener("input", () => {
+
+      preview.innerText = editor.value;
+    });
+
+  </script>
+
+</body>
+</html>
