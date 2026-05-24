@@ -11,7 +11,7 @@
     <meta name="author" content="Alok Ranjan">
     <meta name="copyright" content="Alok Ranjan">
 
-    <!-- Hindi Font -->
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -45,7 +45,7 @@
             padding:20px;
 
             background:
-            linear-gradient(rgba(2,6,23,0.82), rgba(15,23,42,0.92)),
+            linear-gradient(rgba(2,6,23,0.85), rgba(15,23,42,0.92)),
             url('https://images.unsplash.com/photo-1510936111840-65e151ad71bb?q=80&w=1600&auto=format&fit=crop');
 
             background-size:cover;
@@ -84,7 +84,7 @@
             transform:scale(1.05);
         }
 
-        /* MAIN */
+        /* MAIN CONTAINER */
 
         .container{
             width:90%;
@@ -127,7 +127,14 @@
             margin-top:40px;
             text-align:right;
             color:#facc15;
-            font-size:1.1rem;
+            font-size:1rem;
+        }
+
+        .publish-date{
+            display:block;
+            margin-top:10px;
+            font-size:0.92rem;
+            color:#cbd5e1;
         }
 
         /* ADMIN BUTTON */
@@ -274,7 +281,7 @@
 
     </header>
 
-    <!-- MAIN -->
+    <!-- MAIN SECTION -->
 
     <div class="container" id="poemsContainer">
 
@@ -319,6 +326,11 @@
 
             <div class="author">
                 ✍️ — आलोक रंजन
+
+                <span class="publish-date">
+                    📅 प्रकाशित:
+                    <span id="firstDate"></span>
+                </span>
             </div>
 
         </div>
@@ -362,7 +374,7 @@
 
     </div>
 
-    <!-- ADD POEM MODAL -->
+    <!-- POEM MODAL -->
 
     <div class="modal" id="poemModal">
 
@@ -411,6 +423,14 @@
 
     <script>
 
+        /* FIRST POEM DATE */
+
+        const firstPoemDate =
+        "24 मई 2026, 11:45 PM";
+
+        document.getElementById("firstDate")
+        .innerText = firstPoemDate;
+
         /* SCROLL */
 
         function scrollToPoem(){
@@ -425,14 +445,16 @@
 
         function openLogin(){
 
-            document.getElementById("loginModal").style.display = "block";
+            document.getElementById("loginModal")
+            .style.display = "block";
         }
 
         /* CLOSE LOGIN */
 
         function closeLogin(){
 
-            document.getElementById("loginModal").style.display = "none";
+            document.getElementById("loginModal")
+            .style.display = "none";
         }
 
         /* PASSWORD CHECK */
@@ -446,7 +468,8 @@
 
                 closeLogin();
 
-                document.getElementById("poemModal").style.display = "block";
+                document.getElementById("poemModal")
+                .style.display = "block";
 
             }else{
 
@@ -458,7 +481,8 @@
 
         function closePoemModal(){
 
-            document.getElementById("poemModal").style.display = "none";
+            document.getElementById("poemModal")
+            .style.display = "none";
         }
 
         /* PUBLISH POEM */
@@ -476,6 +500,20 @@
                 alert("कृपया शीर्षक और कविता लिखें");
                 return;
             }
+
+            /* REAL TIME */
+
+            const now = new Date();
+
+            const publishTime =
+            now.toLocaleString("hi-IN", {
+
+                day:"numeric",
+                month:"long",
+                year:"numeric",
+                hour:"numeric",
+                minute:"2-digit"
+            });
 
             const container =
             document.getElementById("poemsContainer");
@@ -497,6 +535,10 @@ ${text}
 
                 <div class="author">
                     ✍️ — आलोक रंजन
+
+                    <span class="publish-date">
+                        📅 प्रकाशित: ${publishTime}
+                    </span>
                 </div>
 
             `;
@@ -524,7 +566,7 @@ ${text}
             );
         }
 
-        /* LOAD POEMS */
+        /* LOAD SAVED POEMS */
 
         window.onload = function(){
 
@@ -533,7 +575,8 @@ ${text}
 
             if(saved){
 
-                document.getElementById("poemsContainer").innerHTML = saved;
+                document.getElementById("poemsContainer")
+                .innerHTML = saved;
             }
         }
 
