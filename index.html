@@ -43,6 +43,7 @@
             align-items:center;
             text-align:center;
             padding:20px;
+
             background:
             linear-gradient(rgba(2,6,23,0.82), rgba(15,23,42,0.92)),
             url('https://images.unsplash.com/photo-1510936111840-65e151ad71bb?q=80&w=1600&auto=format&fit=crop');
@@ -100,6 +101,7 @@
             border:1px solid rgba(255,255,255,0.08);
             box-shadow:0 10px 30px rgba(0,0,0,0.4);
             transition:0.4s;
+            margin-bottom:40px;
         }
 
         .poem-card:hover{
@@ -126,6 +128,85 @@
             text-align:right;
             color:#facc15;
             font-size:1.1rem;
+        }
+
+        /* ADMIN BUTTON */
+
+        .center{
+            text-align:center;
+        }
+
+        .admin-btn{
+            padding:16px 35px;
+            border:none;
+            border-radius:40px;
+            background:#facc15;
+            color:#111827;
+            font-size:1rem;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .admin-btn:hover{
+            background:white;
+            transform:scale(1.05);
+        }
+
+        /* MODAL */
+
+        .modal{
+            display:none;
+            position:fixed;
+            z-index:1000;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.88);
+        }
+
+        .modal-content{
+            width:90%;
+            max-width:700px;
+            margin:50px auto;
+            background:#111827;
+            padding:30px;
+            border-radius:25px;
+        }
+
+        .close{
+            float:right;
+            font-size:32px;
+            cursor:pointer;
+            color:white;
+        }
+
+        .modal-content h2{
+            color:#facc15;
+            margin-bottom:20px;
+        }
+
+        input,
+        textarea{
+            width:100%;
+            margin-bottom:20px;
+            padding:16px;
+            border:none;
+            border-radius:15px;
+            background:#1e293b;
+            color:white;
+            font-size:1rem;
+            font-family:'Noto Serif Devanagari', serif;
+        }
+
+        textarea{
+            height:250px;
+            resize:none;
+        }
+
+        .publish-btn{
+            width:100%;
         }
 
         /* FOOTER */
@@ -195,7 +276,9 @@
 
     <!-- MAIN -->
 
-    <div class="container" id="poem-section">
+    <div class="container" id="poemsContainer">
+
+        <!-- FIRST POEM -->
 
         <div class="poem-card">
 
@@ -240,6 +323,75 @@
 
         </div>
 
+        <!-- ADMIN BUTTON -->
+
+        <div class="center">
+
+            <button class="admin-btn" onclick="openLogin()">
+                🔐 Admin Login
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- LOGIN MODAL -->
+
+    <div class="modal" id="loginModal">
+
+        <div class="modal-content">
+
+            <span class="close" onclick="closeLogin()">&times;</span>
+
+            <h2>Admin Login</h2>
+
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Enter Password"
+            >
+
+            <button
+                class="admin-btn publish-btn"
+                onclick="checkPassword()"
+            >
+                Login
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ADD POEM MODAL -->
+
+    <div class="modal" id="poemModal">
+
+        <div class="modal-content">
+
+            <span class="close" onclick="closePoemModal()">&times;</span>
+
+            <h2>नई कविता प्रकाशित करें</h2>
+
+            <input
+                type="text"
+                id="poemTitle"
+                placeholder="कविता का शीर्षक"
+            >
+
+            <textarea
+                id="poemText"
+                placeholder="अपनी कविता यहाँ लिखें..."
+            ></textarea>
+
+            <button
+                class="admin-btn publish-btn"
+                onclick="publishPoem()"
+            >
+                Publish Poem
+            </button>
+
+        </div>
+
     </div>
 
     <!-- FOOTER -->
@@ -259,12 +411,151 @@
 
     <script>
 
+        /* SCROLL */
+
         function scrollToPoem(){
 
-            document.getElementById("poem-section")
+            document.getElementById("poemsContainer")
             .scrollIntoView({
                 behavior:'smooth'
             });
+        }
+
+        /* OPEN LOGIN */
+
+        function openLogin(){
+
+            document.getElementById("loginModal").style.display = "block";
+        }
+
+        /* CLOSE LOGIN */
+
+        function closeLogin(){
+
+            document.getElementById("loginModal").style.display = "none";
+        }
+
+        /* PASSWORD CHECK */
+
+        function checkPassword(){
+
+            const password =
+            document.getElementById("adminPassword").value;
+
+            if(password === "Alok.033"){
+
+                closeLogin();
+
+                document.getElementById("poemModal").style.display = "block";
+
+            }else{
+
+                alert("❌ Incorrect Password");
+            }
+        }
+
+        /* CLOSE POEM MODAL */
+
+        function closePoemModal(){
+
+            document.getElementById("poemModal").style.display = "none";
+        }
+
+        /* PUBLISH POEM */
+
+        function publishPoem(){
+
+            const title =
+            document.getElementById("poemTitle").value;
+
+            const text =
+            document.getElementById("poemText").value;
+
+            if(title === "" || text === ""){
+
+                alert("कृपया शीर्षक और कविता लिखें");
+                return;
+            }
+
+            const container =
+            document.getElementById("poemsContainer");
+
+            const poemCard =
+            document.createElement("div");
+
+            poemCard.classList.add("poem-card");
+
+            poemCard.innerHTML = `
+
+                <div class="poem-title">
+                    "${title}"
+                </div>
+
+                <div class="poem-content">
+${text}
+                </div>
+
+                <div class="author">
+                    ✍️ — आलोक रंजन
+                </div>
+
+            `;
+
+            container.insertBefore(
+                poemCard,
+                container.lastElementChild
+            );
+
+            savePoems();
+
+            document.getElementById("poemTitle").value = "";
+            document.getElementById("poemText").value = "";
+
+            closePoemModal();
+        }
+
+        /* SAVE POEMS */
+
+        function savePoems(){
+
+            localStorage.setItem(
+                "alok_poetry_site",
+                document.getElementById("poemsContainer").innerHTML
+            );
+        }
+
+        /* LOAD POEMS */
+
+        window.onload = function(){
+
+            const saved =
+            localStorage.getItem("alok_poetry_site");
+
+            if(saved){
+
+                document.getElementById("poemsContainer").innerHTML = saved;
+            }
+        }
+
+        /* CLOSE MODAL OUTSIDE CLICK */
+
+        window.onclick = function(event){
+
+            const loginModal =
+            document.getElementById("loginModal");
+
+            const poemModal =
+            document.getElementById("poemModal");
+
+            if(event.target == loginModal){
+
+                loginModal.style.display = "none";
+            }
+
+            if(event.target == poemModal){
+
+                poemModal.style.display = "none";
+            }
         }
 
     </script>
