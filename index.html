@@ -1,184 +1,288 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>सच का बाज़ार | Alok Ranjan</title>
 
-  <!-- Hindi Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+    <title>आवाज़-ए-सच | Alok Ranjan</title>
 
-    body{
-      font-family:'Noto Serif Devanagari', serif;
-      background: linear-gradient(135deg,#020617,#0f172a,#111827);
-      color:white;
-      min-height:100vh;
-      overflow-x:hidden;
-    }
+    <meta name="author" content="Alok Ranjan">
+    <meta name="copyright" content="Alok Ranjan">
 
-    /* Header */
-    header{
-      text-align:center;
-      padding:60px 20px 30px;
-    }
+    <!-- Hindi Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
 
-    header h1{
-      font-size:3.5rem;
-      color:#facc15;
-      text-shadow:0 0 20px rgba(250,204,21,0.5);
-      margin-bottom:15px;
-    }
+    <style>
 
-    header p{
-      max-width:800px;
-      margin:auto;
-      color:#cbd5e1;
-      line-height:1.8;
-      font-size:1.1rem;
-    }
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
 
-    /* Main Layout */
-    .container{
-      width:90%;
-      max-width:1200px;
-      margin:40px auto;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:30px;
-    }
+        html{
+            scroll-behavior:smooth;
+        }
 
-    /* Card Design */
-    .card{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:25px;
-      padding:25px;
-      backdrop-filter:blur(10px);
-      box-shadow:0 10px 30px rgba(0,0,0,0.4);
-      transition:0.4s;
-    }
+        body{
+            font-family:'Noto Serif Devanagari', serif;
+            background:#0f172a;
+            color:white;
+            overflow-x:hidden;
+        }
 
-    .card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 15px 40px rgba(0,0,0,0.6);
-    }
+        /* HERO SECTION */
 
-    .card h2{
-      color:#facc15;
-      margin-bottom:20px;
-      font-size:1.8rem;
-    }
+        header{
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            padding:20px;
+            background:
+            linear-gradient(rgba(2,6,23,0.85), rgba(15,23,42,0.92)),
+            url('https://images.unsplash.com/photo-1510936111840-65e151ad71bb?q=80&w=1600&auto=format&fit=crop');
+            background-size:cover;
+            background-position:center;
+        }
 
-    /* Textarea */
-    textarea{
-      width:100%;
-      height:500px;
-      background:#0f172a;
-      color:white;
-      border:none;
-      outline:none;
-      border-radius:20px;
-      padding:20px;
-      font-size:1rem;
-      line-height:2;
-      resize:none;
-    }
+        header h1{
+            font-size:4rem;
+            color:#facc15;
+            margin-bottom:20px;
+            text-shadow:0 0 25px rgba(250,204,21,0.5);
+        }
 
-    /* Live Preview */
-    .poem{
-      white-space:pre-line;
-      line-height:2.2;
-      font-size:1.05rem;
-      color:#f8fafc;
-      padding:10px;
-    }
+        header p{
+            max-width:850px;
+            font-size:1.2rem;
+            color:#e2e8f0;
+            line-height:2;
+        }
 
-    /* Buttons */
-    .buttons{
-      display:flex;
-      gap:15px;
-      flex-wrap:wrap;
-      margin-top:20px;
-    }
+        .hero-btn{
+            margin-top:40px;
+            padding:15px 35px;
+            border:none;
+            border-radius:40px;
+            background:#facc15;
+            color:#111827;
+            font-size:1rem;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
 
-    button{
-      padding:12px 24px;
-      border:none;
-      border-radius:30px;
-      background:#facc15;
-      color:#111827;
-      font-size:1rem;
-      font-weight:bold;
-      cursor:pointer;
-      transition:0.3s;
-    }
+        .hero-btn:hover{
+            background:white;
+            transform:scale(1.05);
+        }
 
-    button:hover{
-      background:white;
-      transform:scale(1.05);
-    }
+        /* MAIN */
 
-    /* Footer */
-    footer{
-      text-align:center;
-      padding:40px 20px;
-      color:#94a3b8;
-      line-height:2;
-      font-size:1rem;
-    }
+        .container{
+            width:90%;
+            max-width:1100px;
+            margin:80px auto;
+        }
 
-    footer strong{
-      color:#facc15;
-    }
+        /* POEM CARD */
 
-    /* Responsive */
-    @media(max-width:900px){
+        .poem-card{
+            background:#111827;
+            padding:50px;
+            border-radius:30px;
+            margin-bottom:50px;
+            border:1px solid rgba(255,255,255,0.08);
+            box-shadow:0 10px 30px rgba(0,0,0,0.4);
+            transition:0.4s;
+        }
 
-      .container{
-        grid-template-columns:1fr;
-      }
+        .poem-card:hover{
+            transform:translateY(-6px);
+            box-shadow:0 15px 40px rgba(0,0,0,0.6);
+        }
 
-      header h1{
-        font-size:2.5rem;
-      }
+        .poem-title{
+            text-align:center;
+            font-size:2.7rem;
+            color:#facc15;
+            margin-bottom:35px;
+        }
 
-      textarea{
-        height:400px;
-      }
-    }
-  </style>
+        .poem-content{
+            white-space:pre-line;
+            line-height:2.4;
+            color:#f8fafc;
+            font-size:1.1rem;
+        }
+
+        .author{
+            margin-top:40px;
+            text-align:right;
+            color:#facc15;
+            font-size:1.1rem;
+        }
+
+        /* ADD BUTTON */
+
+        .center{
+            text-align:center;
+        }
+
+        .add-btn{
+            padding:16px 35px;
+            border:none;
+            border-radius:40px;
+            background:#facc15;
+            color:#111827;
+            font-size:1rem;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .add-btn:hover{
+            background:white;
+            transform:scale(1.05);
+        }
+
+        /* MODAL */
+
+        .modal{
+            display:none;
+            position:fixed;
+            z-index:1000;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.88);
+        }
+
+        .modal-content{
+            width:90%;
+            max-width:700px;
+            margin:50px auto;
+            background:#111827;
+            padding:30px;
+            border-radius:25px;
+        }
+
+        .modal-content h2{
+            color:#facc15;
+            margin-bottom:20px;
+        }
+
+        input,
+        textarea{
+            width:100%;
+            margin-bottom:20px;
+            padding:16px;
+            border:none;
+            border-radius:15px;
+            background:#1e293b;
+            color:white;
+            font-size:1rem;
+            font-family:'Noto Serif Devanagari', serif;
+        }
+
+        textarea{
+            height:250px;
+            resize:none;
+        }
+
+        .publish-btn{
+            width:100%;
+        }
+
+        .close{
+            float:right;
+            font-size:32px;
+            cursor:pointer;
+            color:white;
+        }
+
+        /* FOOTER */
+
+        footer{
+            text-align:center;
+            padding:50px 20px;
+            border-top:1px solid rgba(255,255,255,0.08);
+            color:#94a3b8;
+            line-height:2;
+        }
+
+        footer strong{
+            color:#facc15;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:768px){
+
+            header h1{
+                font-size:2.5rem;
+            }
+
+            header p{
+                font-size:1rem;
+            }
+
+            .poem-card{
+                padding:25px;
+            }
+
+            .poem-title{
+                font-size:2rem;
+            }
+
+            .poem-content{
+                font-size:1rem;
+            }
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>✍️ सच का बाज़ार</h1>
+    <!-- HERO -->
 
-    <p>
-      यह एक आधुनिक हिंदी Poetry Website है जहाँ आप अपनी कविताएँ लिख सकते हैं,
-      उन्हें सेव कर सकते हैं और सुंदर तरीके से पढ़ सकते हैं।
-    </p>
-  </header>
+    <header>
 
-  <!-- Main Container -->
-  <div class="container">
+        <h1>✍️ आवाज़-ए-सच</h1>
 
-    <!-- Left Side Editor -->
-    <div class="card">
+        <p>
+            हिंदी कविताओं का एक आधुनिक मंच जहाँ शब्द सिर्फ लिखे नहीं जाते,
+            बल्कि महसूस किए जाते हैं।  
+            अपनी कविताएँ लिखें, प्रकाशित करें और दुनिया तक पहुँचाएँ।
+        </p>
 
-      <h2>📝 कविता लिखें</h2>
+        <button class="hero-btn" onclick="scrollToPoems()">
+            📖 कविताएँ पढ़ें
+        </button>
 
-      <textarea id="editor">
-"सच का बाज़ार"
+    </header>
 
+    <!-- POEMS -->
+
+    <div class="container" id="poemsContainer">
+
+        <!-- FIRST POEM -->
+
+        <div class="poem-card">
+
+            <div class="poem-title">
+                "सच का बाज़ार"
+            </div>
+
+            <div class="poem-content">
 सुबह-सुबह जो हाथ में आया, वो अखबार नहीं है,
 जो स्क्रीन पर चमक रहा है, वो सच का यार नहीं है।
 यहाँ झूठ को सच का चश्मा पहनाया जाता है,
@@ -207,99 +311,190 @@
 
 क्योंकि...
 सुबह-सुबह जो हाथ में आया, वो अखबार नहीं है।
-      </textarea>
+            </div>
 
-      <div class="buttons">
-        <button onclick="publishPoem()">Publish</button>
-        <button onclick="downloadPoem()">Download</button>
-        <button onclick="clearPoem()">Clear</button>
-      </div>
+            <div class="author">
+                ✍️ — आलोक रंजन
+            </div>
+
+        </div>
+
+        <!-- ADD BUTTON -->
+
+        <div class="center">
+
+            <button class="add-btn" onclick="openModal()">
+                ➕ नई कविता प्रकाशित करें
+            </button>
+
+        </div>
 
     </div>
 
-    <!-- Right Side Preview -->
-    <div class="card">
+    <!-- MODAL -->
 
-      <h2>📖 Live Preview</h2>
+    <div class="modal" id="poemModal">
 
-      <div class="poem" id="preview"></div>
+        <div class="modal-content">
+
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <h2>नई कविता लिखें</h2>
+
+            <input
+                type="text"
+                id="poemTitle"
+                placeholder="कविता का शीर्षक"
+            >
+
+            <textarea
+                id="poemText"
+                placeholder="अपनी कविता यहाँ लिखें..."
+            ></textarea>
+
+            <button
+                class="add-btn publish-btn"
+                onclick="addPoem()"
+            >
+                Publish Poem
+            </button>
+
+        </div>
 
     </div>
 
-  </div>
+    <!-- FOOTER -->
 
-  <!-- Footer -->
-  <footer>
-    ✍️ Author: <strong>Alok Ranjan</strong> <br>
-    Poetry Studio Website 2026 <br>
-    Made with ❤️ for Hindi Writers
-  </footer>
+    <footer>
 
-  <!-- JavaScript -->
-  <script>
+        <strong>Author:</strong> Alok Ranjan <br>
 
-    const editor = document.getElementById("editor");
-    const preview = document.getElementById("preview");
+        © 2026 Awaaz-E-Sach. All Rights Reserved. <br>
 
-    // Publish Poem
-    function publishPoem(){
+        इस वेबसाइट की सभी कविताएँ, लेखन और डिज़ाइन कॉपीराइट द्वारा सुरक्षित हैं।  
+        बिना अनुमति किसी भी सामग्री की नकल, पुनर्प्रकाशन या व्यावसायिक उपयोग प्रतिबंधित है।
 
-      preview.innerText = editor.value;
+    </footer>
 
-      // Save locally
-      localStorage.setItem("alok_poem", editor.value);
+    <!-- JAVASCRIPT -->
 
-      alert("✅ Poem Published Successfully");
-    }
+    <script>
 
-    // Auto Load Saved Poem
-    window.onload = () => {
+        /* SCROLL */
 
-      const savedPoem = localStorage.getItem("alok_poem");
+        function scrollToPoems(){
 
-      if(savedPoem){
-        editor.value = savedPoem;
-      }
+            window.scrollTo({
+                top:window.innerHeight,
+                behavior:'smooth'
+            });
+        }
 
-      preview.innerText = editor.value;
-    }
+        /* OPEN MODAL */
 
-    // Download Poem
-    function downloadPoem(){
+        function openModal(){
 
-      const poemText = editor.value;
+            document.getElementById("poemModal").style.display = "block";
+        }
 
-      const blob = new Blob([poemText], {type:"text/plain"});
+        /* CLOSE MODAL */
 
-      const link = document.createElement("a");
+        function closeModal(){
 
-      link.href = URL.createObjectURL(blob);
+            document.getElementById("poemModal").style.display = "none";
+        }
 
-      link.download = "Sach_Ka_Bazaar.txt";
+        /* ADD NEW POEM */
 
-      link.click();
-    }
+        function addPoem(){
 
-    // Clear Poem
-    function clearPoem(){
+            const title =
+            document.getElementById("poemTitle").value;
 
-      if(confirm("Are you sure you want to clear the poem?")){
+            const text =
+            document.getElementById("poemText").value;
 
-        editor.value = "";
+            if(title === "" || text === ""){
 
-        preview.innerText = "";
+                alert("कृपया शीर्षक और कविता लिखें");
+                return;
+            }
 
-        localStorage.removeItem("alok_poem");
-      }
-    }
+            const container =
+            document.getElementById("poemsContainer");
 
-    // Live Typing Preview
-    editor.addEventListener("input", () => {
+            const poemCard =
+            document.createElement("div");
 
-      preview.innerText = editor.value;
-    });
+            poemCard.classList.add("poem-card");
 
-  </script>
+            poemCard.innerHTML = `
+
+                <div class="poem-title">
+                    "${title}"
+                </div>
+
+                <div class="poem-content">
+${text}
+                </div>
+
+                <div class="author">
+                    ✍️ — आलोक रंजन
+                </div>
+
+            `;
+
+            container.insertBefore(
+                poemCard,
+                container.lastElementChild
+            );
+
+            savePoems();
+
+            document.getElementById("poemTitle").value = "";
+            document.getElementById("poemText").value = "";
+
+            closeModal();
+        }
+
+        /* SAVE POEMS */
+
+        function savePoems(){
+
+            localStorage.setItem(
+                "alok_poetry_website",
+                document.getElementById("poemsContainer").innerHTML
+            );
+        }
+
+        /* LOAD SAVED POEMS */
+
+        window.onload = function(){
+
+            const saved =
+            localStorage.getItem("alok_poetry_website");
+
+            if(saved){
+
+                document.getElementById("poemsContainer").innerHTML = saved;
+            }
+        }
+
+        /* CLOSE MODAL OUTSIDE CLICK */
+
+        window.onclick = function(event){
+
+            const modal =
+            document.getElementById("poemModal");
+
+            if(event.target == modal){
+
+                modal.style.display = "none";
+            }
+        }
+
+    </script>
 
 </body>
+
 </html>
